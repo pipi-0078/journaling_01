@@ -13,16 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // 保存完了のメッセージを表示する関数
     function showSaveMessage() {
         const saveMessage = document.getElementById('saveMessage');
-        saveMessage.classList.add('show');
+        saveMessage.classList.add('active');
         
-        // 2秒後にフェードアウト
+        // 4秒後にフェードアウト
         setTimeout(() => {
-            saveMessage.classList.remove('show');
-            saveMessage.style.animation = 'fadeOut 0.5s ease-out';
-            setTimeout(() => {
-                saveMessage.style.animation = '';
-            }, 500);
-        }, 2000);
+            saveMessage.classList.remove('active');
+        }, 4000);
     }
 
     // 保存機能
@@ -71,12 +67,37 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="entry-timestamp">${entry.timestamp}</div>
                 </div>
                 <div class="entry-content">${entry.text}</div>
+                <div class="entry-toggle">クリックで展開/折りたたみ</div>
             </div>
         `).join('');
+
+        // 折りたたみ機能の初期設定
+        const entryItems = document.querySelectorAll('.entry-item');
+        entryItems.forEach(item => {
+            if (entries.length > 10) {
+                item.classList.add('collapsed');
+            }
+            
+            const toggle = item.querySelector('.entry-toggle');
+            toggle.addEventListener('click', () => {
+                item.classList.toggle('expanded');
+                item.classList.toggle('collapsed');
+            });
+        });
     }
 
     // ページ読み込み時に保存されたエントリを表示
     displayEntries();
+
+    // 削除ボタンのクリックイベント
+    const deleteEntriesBtn = document.getElementById('deleteEntries');
+    deleteEntriesBtn.addEventListener('click', () => {
+        if (confirm('本当に全ての記録を削除しますか？')) {
+            localStorage.removeItem('journalEntries');
+            displayEntries();
+            showSaveMessage();
+        }
+    });
 
     // タイマーを開始する関数
     function startTimer() {
