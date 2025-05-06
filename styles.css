@@ -16,9 +16,39 @@ body {
     margin: 0;
 }
 
+/* タイトルのスタイル */
+.container h1 {
+    text-align: center;
+    color: #2c663d;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(44, 102, 61, 0.1);
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+/* モバイルデバイス向けのタイトル調整 */
+@media screen and (max-width: 768px) {
+    .container h1 {
+        font-size: 1.6rem;
+        line-height: 1.2;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        display: block;
+        width: 100%;
+    }
+}
+
 /* モバイルデバイス (768px以下) */
 @media screen and (max-width: 768px) {
     body {
+        font-size: 1.6rem;
         padding: 1rem;
     }
 
@@ -157,6 +187,7 @@ body {
     line-height: 1.8;
     white-space: pre-wrap;
     word-wrap: break-word;
+    font-size: 0.95rem;
 }
 
 .container {
@@ -316,6 +347,21 @@ h1 {
     font-weight: 500;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(102, 187, 106, 0.3);
+}
+
+/* モバイルデバイス向けの保存ボタンのスタイル */
+@media screen and (max-width: 768px) {
+    .save-button {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        display: block;
+        margin: 1.5rem auto 0;
+        width: 90%;
+        max-width: 300px;
+        padding: 1rem;
+        font-size: 1.2rem;
+    }
 }
 
 .save-message {
