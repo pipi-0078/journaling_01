@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>どこでもジャーナリング</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>どこでもジャーナリング</h1>
+        <div class="emotion-container">
+            <label for="emotionSelect">今の感情</label>
+            <select id="emotionSelect">
+                <option value="1">イライラしている</option>
+                <option value="2">緊張している</option>
+                <option value="3">不安で仕方ない</option>
+                <option value="4">不安だけどワクワクしている</option>
+                <option value="5">気持ちが高揚している</option>
+                <option value="6">悲しい</option>
+                <option value="7">涙が止まらないほど辛い</option>
+                <option value="8">怒りに満ちている</option>
+                <option value="9">憎くて仕方ない</option>
+                <option value="10">ムカムカする</option>
+            </select>
+        </div>
+        <div class="timer-container">
+            <select id="timerSelect">
+                <option value="180">3分</option>
+                <option value="300">5分</option>
+                <option value="600">10分</option>
+            </select>
+            <button id="startTimer">開始</button>
+            <div id="timerDisplay">05:00</div>
+        </div>
+        <div class="text-area-container">
+            <textarea id="textArea" maxlength="3000"></textarea>
+            <div class="counter">残り文字数: <span id="remainingChars">3000</span></div>
+            <button id="saveButton" class="save-button">保存する</button>
+            <div id="saveMessage" class="save-message">
+                <div class="save-icon"></div>
+                <div class="save-text">記録が保存されました！</div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+    <div class="entries-container">
+        <h2>過去の記録</h2>
+        <div id="entriesList"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
